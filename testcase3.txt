@@ -1,0 +1,21 @@
+LI R2,256
+L.D F1,0(R2)
+S.D F2,0(R2)
+L.D F2,16(R2)
+L.D F3, 32(R2)
+L.D F4,64(R2)
+L.D F5,80(R2)
+L.D F6, 0(R2)
+-----------------------------------------------------
+LI R2,256           13	14	15	16	17	N	N	N	N	
+LD F1,0(R2)         14	15	18	32	33	Y	N	N	N	
+SD F2,0(R2)         15	34	35	37	38	N	N	N	Y	
+LD F2,16(R2)        34	39	40	60	61	N	N	N	Y	
+LD F3,32(R2)        47	62	63	77	78	N	N	N	Y	
+LD F4,64(R2)        62	79	80	106	107	N	N	N	Y	
+LD F5,80(R2)        79	108	109	123	124	N	N	N	Y	
+LD F6,0(R2)         108	125	126	140	141	N	N	N	Y	
+Total number of access requests for instruction cache: 8
+Number of instruction cache hits: 6
+Total number of access requests for data cache: 14
+Number of data cache hits: 8

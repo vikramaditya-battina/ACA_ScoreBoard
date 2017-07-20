@@ -1,0 +1,38 @@
+LI R1, 1
+LI R2, 5
+LI R3, 1
+LI R3, 1
+GG: DADD R3,R3,R1
+BEQ R3,R2,PP
+LI R4,5
+J GG
+PP:LI R5,1
+--------------------------------------------------------
+LI R1,1             13	14	15	16	17	N	N	N	N	
+LI R2,5             14	18	19	20	21	N	N	N	Y	
+LI R3,1             18	22	23	24	25	N	N	N	Y	
+LI R3,1             22	26	27	28	29	N	N	N	Y	
+DADD R3,R3,R1       35	36	37	38	39	N	N	N	N	
+BEQ  R3, R2, PP     36	37	40	 	 	Y	N	N	N	
+LI R4,5             37	41	42	43	44	N	N	N	N	
+J GG                41	42	 	 	 	N	N	N	N	
+LI R5,1             54	 	 	 	 	N	N	N	N	
+DADD R3,R3,R1       55	56	57	58	59	N	N	N	N	
+BEQ  R3, R2, PP     56	57	60	 	 	Y	N	N	N	
+LI R4,5             57	61	62	63	64	N	N	N	N	
+J GG                61	62	 	 	 	N	N	N	N	
+LI R5,1             62	 	 	 	 	N	N	N	N	
+DADD R3,R3,R1       63	65	66	67	68	N	N	N	Y	
+BEQ  R3, R2, PP     65	66	69	 	 	Y	N	N	N	
+LI R4,5             66	70	71	72	73	N	N	N	N	
+J GG                70	71	 	 	 	N	N	N	N	
+LI R5,1             71	 	 	 	 	N	N	N	N	
+DADD R3,R3,R1       72	74	75	76	77	N	N	N	Y	
+BEQ  R3, R2, PP     74	75	78	 	 	Y	N	N	N	
+LI R4,5             75	79	 	 	 	N	N	N	N	
+J GG                79	 	 	 	 	N	N	N	N	
+LI R5,1             80	81	82	83	84	N	N	N	N	
+Total number of access requests for instruction cache: 24
+Number of instruction cache hits: 21
+Total number of access requests for data cache: 0
+Number of data cache hits: 0

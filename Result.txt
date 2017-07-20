@@ -1,0 +1,24 @@
+      Instruction                Fetch  Issue  Read   Exec   Write  RAW    WAW    Struct    
+      LI R4,260                  13     14     15     16     17     N      N      N         
+      LI R5,272                  14     18     19     20     21     N      N      Y         
+      LI R1,8                    18     22     23     24     25     N      N      Y         
+      LI R2,4                    22     26     27     28     29     N      N      Y         
+      LI R3,0                    35     36     37     38     39     N      N      N         
+      LD F2,8(R5)                36     37     38     64     65     N      N      N         
+      ADD.D F4,F6,F2             37     38     66     68     69     Y      N      N         
+      SUB.D F5,F7,F1             38     39     40     42     43     N      N      N         
+      MUL.D F6,F1,F5             51     52     53     83     84     N      N      N         
+      ADD.D F7,F2,F6             52     53     85     87     88     Y      N      N         
+      ADD.D F6,F1,F7             53     85     89     91     92     Y      Y      Y         
+      DADDI R4,R4,20             85     86     87     88     89     N      N      N         
+      DADDI R5,R5,8              98     99     100    101    102    N      N      N         
+      DSUB R1,R1,R2              99     103    104    105    106    N      N      Y         
+      BNE  R1, R3, GG            103    104    107                  Y      N      N         
+ GG   LD F1,4(R4)                104    108                         N      N      N         
+      HLT                        117                                N      N      N         
+ GG   LD F1,4(R4)                118    119    120    134    135    N      N      N         
+      HLT                        119                                N      N      N         
+Total number of access requests for instruction cache: 19
+Number of instruction cache hits: 14
+Total number of access requests for data cache: 4
+Number of data cache hits: 2
